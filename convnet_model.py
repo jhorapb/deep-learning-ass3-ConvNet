@@ -415,7 +415,7 @@ class ConvNet():
                         self.F[k] = Fs[k].copy()
                         grads_F[k][i, j, l] = (l2 - l1) / (2 * h)
 
-        # compute the gradient for the fully connected layer
+        # Computing gradients for fully connected layer
         W_try = self.W.copy()
         grads_W = np.zeros(W_try.shape)
         for i in range(W_try.shape[0]):
@@ -583,9 +583,9 @@ if __name__ == "__main__":
     
     H_PARAMS = {'n_epoch': 2000, 'n_batch': 100, 'eta': 0.001, 'rho': 0.9}
     ## Setup 1:
-    # conv_nn = ConvNet([5, 4, 3], [5, 3, 3], d_len, K_classes, n_len, H_PARAMS, X[:2], start)
+    # conv_nn = ConvNet([5, 4, 3], [5, 3, 3], d_len, K_classes, n_len, H_PARAMS, X[:10], start)
     ## Setup 2:
-    conv_nn = ConvNet([5, 3], [5, 5], d_len, K_classes, n_len, H_PARAMS, X[:2], start)
+    conv_nn = ConvNet([5, 3], [5, 5], d_len, K_classes, n_len, H_PARAMS, X, start)
 
     conv_nn.forward_pass(X[:2])
     conv_nn.backward_pass(Y_one_hot[:2])
@@ -598,9 +598,9 @@ if __name__ == "__main__":
     test_mtx = conv_nn.confussion_matrix
     plot_loss(cost_train, cost_val, accuracy, accuracy_val)
 
-    print("\n Test matrix \n")
+    print("Test matrix")
     print(test_mtx)
-    print("\n Accuracy in the test sample: ", acc_test)
+    print("Accuracy in the testing: ", accuracy_test)
 
     per_F1, per_F2, per_F3, per_W = conv_nn.grad_checking(ohd_names[:2], Y_ohd[:2], eps, h)
     plot_accuracy(per_F1, per_F2, per_F3, per_W, conv_nn.n_layer_filters[0], conv_nn.n_layer_filters[1])
