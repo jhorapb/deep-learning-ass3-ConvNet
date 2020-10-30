@@ -450,7 +450,7 @@ class ConvNet():
             dLF_anal.append(self.dLFstore[i].copy())
         dJw_anal = self.dJw.copy()
 
-        GradF, GradW = self.NumericalGradient(X, Y, h)
+        GradF, GradW = self.numerical_gradient(X, Y, h)
 
         for err in acc:
             err_F1 = self.relative_error(dLF_anal[0], GradF[0].reshape((dLF_anal[0].shape), order = 'F'), e)
