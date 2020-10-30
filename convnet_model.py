@@ -581,7 +581,8 @@ if __name__ == "__main__":
     X_test = encode_names(testing_names, chars_dict)
     Y_test_one_hot = encode_labels_dataset(testing_labels)
     
-    H_PARAMS = {'n_epoch': 2000, 'n_batch': 100, 'eta': 0.001, 'rho': 0.9}
+    H_PARAMS = {'n_epoch': 2000, 'n_batch': 100, 'eta': 0.01, 'rho': 0.9, 'n1' : 20,
+        'n2' : 20}
     ## Setup 1:
     # conv_nn = ConvNet([5, 4, 3], [5, 3, 3], d_len, K_classes, n_len, H_PARAMS, X[:10], start)
     ## Setup 2:
