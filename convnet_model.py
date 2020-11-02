@@ -576,8 +576,9 @@ if __name__ == "__main__":
     # print('\n---Full X Matrix---\n', X)
     print('\n---Y One-hot Labels Shape---\n', Y_one_hot.shape)
     # print('\n---Y One-hot Labels---\n', Y_one_hot)
-    testing_names = ['perez', 'isachenko', 'moncada', 'adkins', 'fematt']
-    testing_labels = [17, 15, 17, 5, 6]
+    testing_names = ['perez', 'isachenko', 'moncada', 'adkins', 'fematt', 
+                     'weissman', 'bentancur']
+    testing_labels = [17, 15, 17, 5, 6, 7, 6]
     X_test = encode_names(testing_names, chars_dict)
     Y_test_one_hot = encode_labels_dataset(testing_labels)
     
